@@ -76,8 +76,14 @@ export class AuthService {
     return this.userModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
+  async findById(id: number): Promise<User> {
+    const userDB = await this.userModel.findById(id);
+    const { password, ...user } = userDB.toJSON();
+    return user;
+  }
+
+  findOne(id: number): Promise<User> {
+    return this.userModel.findById(id);
   }
 
   update(id: number, updateAuthDto: UpdateAuthDto) {
