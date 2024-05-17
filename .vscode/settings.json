@@ -6,7 +6,7 @@
     "scminput": false
   },
   "files.exclude": {
-    "backend": false
+    "backend": true
   },
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnSave": true,
