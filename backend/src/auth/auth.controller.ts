@@ -44,6 +44,17 @@ export class AuthController {
     return this.authService.findAll();
   }
 
+  @UseGuards(AuthGuard)
+  @Get('check-token')
+  checkToken(@Request() req: Request): LoginResponse {
+    const user = req['user'] as User;
+
+    return {
+      user,
+      token: this.authService.getJWT({ id: user._id?.toString() }),
+    };
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.authService.findOne(+id);
@@ -57,16 +68,5 @@ export class AuthController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.authService.remove(+id);
-  }
-
-  @UseGuards(AuthGuard)
-  @Get('check-token')
-  checkToken(@Request() req: Request): LoginResponse {
-    const user = req['user'] as User;
-
-    return {
-      user,
-      token: this.authService.getJWT({ id: user._id.toString() }),
-    };
   }
 }

@@ -14,9 +14,9 @@ export class RegisterPageComponent {
   private router = inject(Router);
 
   public myForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    name: ['', [Validators.required, Validators.minLength(6)]],
+    email: ['santiago@correo.com', [Validators.required, Validators.email]],
+    password: ['41450482', [Validators.required, Validators.minLength(6)]],
+    name: ['santiago', [Validators.required, Validators.minLength(6)]],
   });
 
   public register() {

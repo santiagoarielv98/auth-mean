@@ -1,12 +1,13 @@
 {
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
     "markdown": false,
     "scminput": false
   },
   "files.exclude": {
-    "backend": true
+    "backend": false,
+    "frontend": false
   },
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnSave": true,

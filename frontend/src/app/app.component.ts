@@ -29,6 +29,5 @@ export class AppComponent {
       case AuthStatus.NOT_AUTHENTICATED:
         this.router.navigateByUrl('/auth/login');
     }
-    this.authService.authStatus();
   });
 }
