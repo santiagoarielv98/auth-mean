@@ -1,9 +1,19 @@
-<form class="login100-form" autocomplete="off">
+<form
+  class="login100-form"
+  autocomplete="off"
+  [formGroup]="myForm"
+  (ngSubmit)="login()"
+>
   <span class="login100-form-title p-b-49"> Login </span>
 
   <div class="wrap-input100 m-b-23">
     <span class="label-input100">Correo</span>
-    <input class="input100" type="email" placeholder="Correo electrónico" />
+    <input
+      class="input100"
+      type="email"
+      placeholder="Correo electrónico"
+      formControlName="name"
+    />
     <span class="focus-input100"></span>
   </div>
 
@@ -13,6 +23,7 @@
       class="input100"
       type="password"
       placeholder="Ingrese su contraseña"
+      formControlName="password"
     />
     <span class="focus-input100"></span>
   </div>
@@ -22,7 +33,13 @@
   <div class="container-login100-form-btn">
     <div class="wrap-login100-form-btn">
       <div class="login100-form-bgbtn"></div>
-      <button class="login100-form-btn" type="submit">Login</button>
+      <button
+        class="login100-form-btn"
+        type="submit"
+        [disabled]="myForm.invalid"
+      >
+        Login
+      </button>
     </div>
   </div>
 
